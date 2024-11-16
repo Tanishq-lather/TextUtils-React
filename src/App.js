@@ -3,9 +3,9 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-import About from './components/About';
+// import About from './components/About';
 // import {
-//   BrowserRouter as Router,
+//   BrowserRouter as Router, 
 //   Routes,
 //   Route,
 // } from "react-router-dom";
