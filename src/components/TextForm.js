@@ -30,12 +30,12 @@ export default function TextForm(props) {
   };
 
   const handleClrClick = (event) => {
-    let text = ""
-    setText(text);
+    let text_1 = ""
+    setText(text_1);
     if (text.split(" ").filter((elem) => {return elem.length !== 0}).length === 0){
       props.showAlert("No Text to clear!","warning");
     }
-    else{
+    else {
       props.showAlert("Text area cleard","success");
     }
   };
@@ -57,7 +57,7 @@ export default function TextForm(props) {
     else {
       props.showAlert("Text copied to clipboard","success");
     }
-  }
+  };
 
   const handleExSpace = (event) => {
     let newText = text.split(/[ ]+/);
@@ -68,7 +68,7 @@ export default function TextForm(props) {
     else{
       props.showAlert("Extra Space removed","success");
     }
-  }
+  };
 
   const handleCapClick = (event) => {
     let newText = [];
