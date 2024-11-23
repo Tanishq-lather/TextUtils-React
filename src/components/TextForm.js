@@ -11,7 +11,7 @@ export default function TextForm(props) {
     let newText = text.toUpperCase();  
     setText(newText);
     if (text.split(" ").filter((elem) => {return elem.length !== 0}).length === 0){
-      props.showAlert("No Text to converted!","warning");
+      props.showAlert("No Text to convert!","warning");
     }
     else{
       props.showAlert("Text converted to Upper Case","success");
@@ -22,7 +22,7 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();  
     setText(newText);
     if (text.split(" ").filter((elem) => {return elem.length !== 0}).length === 0){
-      props.showAlert("No Text to converted!","warning");
+      props.showAlert("No Text to convert!","warning");
     }
     else{
       props.showAlert("Text converted to Lower Case","success");
@@ -33,7 +33,7 @@ export default function TextForm(props) {
     let text = ""
     setText(text);
     if (text.split(" ").filter((elem) => {return elem.length !== 0}).length === 0){
-      props.showAlert("No Text to cleared!","warning");
+      props.showAlert("No Text to clear!","warning");
     }
     else{
       props.showAlert("Text area cleard","success");
@@ -52,7 +52,7 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value);
     document.getSelection().removeAllRanges();
     if (text.value.split(" ").filter((elem) => {return elem.length !== 0}).length === 0){
-      props.showAlert("No Text to copied!","warning");
+      props.showAlert("No Text to copy!","warning");
     }
     else {
       props.showAlert("Text copied to clipboard","success");
@@ -72,12 +72,18 @@ export default function TextForm(props) {
 
   const handleCapClick = (event) => {
     let newText = [];
-    let word = text.split(".");
+    let word = text.split(" ");
     word.forEach((word) => {
       let lower = word.toLowerCase();
       newText.push(lower.charAt(0).toUpperCase() + lower.slice(1));
     })
     setText(newText.join(" "));
+    if (text.split(" ").filter((elem) => {return elem.length !== 0}).length === 0){
+      props.showAlert("No text to Captalize!","warning");
+    }
+    else{
+      props.showAlert("Text Captalize","success");
+    }
   }
   return (
     <>
@@ -96,7 +102,7 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white': '#0a0e0f'}}>
         <h3>Your Text Summary</h3>
-        <p>{text.split(" ").filter((elem) => {return elem.length !== 0}).length} Words and {text.length} Characters</p>
+        <p>{text.split(/\s+/).filter((elem) => {return elem.length !== 0}).length} Words and {text.split("").filter((elem) => {return elem !== " " && elem !== "\n"}).length} Characters</p>
         <p>{0.008 * text.split(" ").filter((elem) => {return elem.length !== 0}).length} minutes read</p>
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white': '#0a0e0f'}}>
